@@ -1,9 +1,11 @@
+import java.util.ArrayList;
+
 public class ThreadCheckArray implements Runnable 
 {
 	private boolean flag;
 	private boolean [] winArray;
 	SharedData sd;
-	int[] array;
+	ArrayList<Integer> array;
 	int b;
 	
 	public ThreadCheckArray(SharedData sd) 
