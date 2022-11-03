@@ -8,25 +8,30 @@ public class ThreadCheckArray implements Runnable
 	ArrayList<Integer> array;
 	int b;
 	
+	//initializing class ThreadCheckArray
 	public ThreadCheckArray(SharedData sd) 
 	{
-		this.sd = sd;	
-		synchronized (sd) 
+		this.sd = sd;
+		synchronized (sd) 	//for threads, threads work one by one
 		{
-			array = sd.getArray();
+			array = sd.getArray();	//build array
 			b = sd.getB();
 		}		
-		winArray = new boolean[array.length];
+		winArray = new boolean[array.length];	//boolean array
 	}
 	
+	//recursive function to check if array elements can be b value
+	//function sets array elements value to true or false whether they can make value b
+	//input : int n, int b
+	// n = array length, b = number
 	void rec(int n, int b)
 	{
 		synchronized (sd) 
 		{
-			if (sd.getFlag())
+			if (sd.getFlag())	//if true
 				return;
 		}	
-		if (n == 1)
+		if (n == 1)	//if array length is 1
 		{
 			if(b == 0 || b == array[n-1])
 			{
@@ -41,7 +46,7 @@ public class ThreadCheckArray implements Runnable
 			return;
 		}
 		
-		rec(n-1, b - array[n-1]);
+		rec(n-1, b - array[n-1]);	//call function again, decrease array length by 1, and subtract elements number from b
 		if (flag)
 			winArray[n-1] = true;
 		synchronized (sd) 
@@ -52,7 +57,7 @@ public class ThreadCheckArray implements Runnable
 		rec(n-1, b);
 	}
 
-	public void run() {
+	public void run() {	//funtion to run threads
 		if (array.length != 1)
 			if (Thread.currentThread().getName().equals("thread1"))
 				rec(array.length-1, b - array[array.length - 1]);

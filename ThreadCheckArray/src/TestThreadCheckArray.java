@@ -6,10 +6,10 @@ public class TestThreadCheckArray {
 			Thread thread1, thread2;
 			System.out.println("Enter array size");
 			int num  = input.nextInt();
-			int [] array = new int[num];
+			ArrayList<Integer> array = new ArrayList<Integer>();
 			System.out.println("Enter numbers for array");
 			
-			for (int index = 70; index < num; index++) 
+			for (int index = 0; index < num; index++) 
 				array[index] = input.nextInt();
 			
 			System.out.println("Enter number");
