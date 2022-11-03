@@ -1,7 +1,19 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * @author Daniel
+ * Class that tests the ThreadCheckArray class.
+ *
+ */
 public class TestThreadCheckArray {
+	
+	/**
+	 * @param args
+	 * Gets input numbers from user and builds a list from them,
+	 *  then creates two threads that each has an object of ThreadCheckArray.
+	 *  returns the solution with the user input numbers.
+	 */
 	public static void main(String[] args) {
 		try (Scanner input = new Scanner(System.in)) {
 			Thread thread1, thread2;
