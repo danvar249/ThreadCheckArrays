@@ -7,6 +7,10 @@ public class SharedData
 	private boolean flag;
 	private final int b;
 	
+	/**
+	 * @param array array of numbers to check
+	 * @param b the number to check if you can make it with a sum of 2 numbers from array.
+	 */
 	public SharedData(ArrayList<Integer> array, int b) {
 		
 		this.array = array;
